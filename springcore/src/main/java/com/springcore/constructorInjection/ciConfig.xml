@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:c="http://www.springframework.org/schema/c"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+ 		https://www.springframework.org/schema/beans/spring-beans.xsd
+ 		http://www.springframework.org/schema/context
+ 		https://www.springframework.org/schema/beans/spring-context.xsd">
+ 	<!-- Here p is used for property schema and c is used for constructor schema -->
+ 		
+ 	<bean class="com.springcore.constructorInjection.Certificate" name="certificate">
+ 	
+ 		<constructor-arg value="Android Using Java"/>
+ 		
+ 		<!-- Or -->
+ 		<!-- <constructor-arg>
+ 			<value>SpringBoot Complete Course</value>
+ 		</constructor-arg> -->
+ 	
+ 	</bean>
+ 	
+ 	<bean class="com.springcore.constructorInjection.PersonBean" name="person">
+ 	<!-- Here we create the constructor-arg tag according to the number of parameter in constructor -->
+ 		<constructor-arg value="Priyanshu"/>
+ 		
+ 		<constructor-arg value="10001"/>	<!-- Spring IOC container automatically detect its type without using type property like type="int" -->
+ 		
+ 		<constructor-arg ref="certificate"/>
+ 		
+ 		<constructor-arg>
+ 			<list>
+ 				<value>Spring</value>
+ 				<value>Hibernate</value>
+ 				<value>JDBC</value>
+ 			</list>
+ 		</constructor-arg>
+ 	
+ 	</bean>
+ 	
+ 	<bean class="com.springcore.constructorInjection.Addition" name="addition">
+ 	<!-- Through index argument we can decide which value get which value and also by default it take the value as String type -->
+ 		<constructor-arg value="20" type="int" index="1"/>
+ 		<constructor-arg value="10" type="int" index="0"/>
+ 	
+ 	</bean>
+
+</beans>

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+ 		https://www.springframework.org/schema/beans/spring-beans.xsd
+ 		http://www.springframework.org/schema/context
+ 		https://www.springframework.org/schema/context/spring-context.xsd">
+ 		
+ 	<!-- This is our beans here we tell the metadata to spring container -->
+ 	<bean class="com.springcore.StudentBean" name="student1">
+ 		<!-- This is a setter injection because we set the field with the help of property -->
+ 		<!-- First Way -->
+ 		<!-- <property name="studentId">
+ 			<value>10001</value>
+ 		</property> -->
+ 		<!-- Or 2nd Way -->
+ 		<property name="studentId" value="10001"/>
+ 		
+ 		<property name="studentName" value="Priyanshu Baral"/>
+ 		
+ 		<property name="studentAddress" value="Delhi"/>
+ 		
+ 	</bean>
+ 	
+ 	<!-- Second Bean using p schema is the 3rd Way-->
+ 	<bean class="com.springcore.StudentBean" name="student2" p:studentId="10002" p:studentName="Rohan" p:studentAddress="Mumbai"/>
+ 	
+
+</beans>

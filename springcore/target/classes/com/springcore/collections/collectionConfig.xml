@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+ 		https://www.springframework.org/schema/beans/spring-beans.xsd
+ 		http://www.springframework.org/schema/context
+ 		https://www.springframework.org/schema/beans/spring-context.xsd">
+ 		
+ 	<bean class="com.springcore.collections.EmployeeBean" name="employee1">
+ 		
+ 		<property name="name" value="Priyanshu"/>
+ 		
+ 		<property name="phones">
+ 			<!-- <value>9658745854</value> if we insert only one element -->
+ 			<list>
+ 			
+ 				<value>9658745854</value>
+ 				<value>8569875879</value>
+ 				<value>4258998577</value>
+ 				<null/>
+ 			
+ 			</list>
+ 			
+ 		</property>
+ 		
+ 		<property name="addresses">
+ 		
+ 			<set>
+ 			
+ 				<value>Delhi</value>
+ 				<value>Noida</value>
+ 				<value>Gurgaon</value>
+ 			
+ 			</set>
+ 		
+ 		</property>
+ 		
+ 		<property name="courses">
+ 		
+ 			<map>
+ 			
+ 				<entry key="Java" value="1Month"/>
+ 				<entry key="DSA" value="3Month"/>
+ 			
+ 			</map>
+ 		
+ 		</property>
+ 		
+ 		<property name="profile">
+ 		
+ 			<props>
+ 			
+ 				<prop key="name">Priyanshu Baral</prop>
+ 				<prop key="Role">Android Developer</prop>
+ 			
+ 			</props>
+ 		
+ 		</property>
+ 	
+ 	</bean>
+
+</beans>

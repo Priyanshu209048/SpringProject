@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:util="http://www.springframework.org/schema/util"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+ 		https://www.springframework.org/schema/beans/spring-beans.xsd
+ 		http://www.springframework.org/schema/context
+ 		https://www.springframework.org/schema/context/spring-context.xsd
+ 		http://www.springframework.org/schema/util
+ 		https://www.springframework.org/schema/util/spring-util.xsd">
+ 	
+ 	<!-- Standalone List -->
+ 	<!-- This is used because if we want to used the dame thing multiples times in the program then we
+ 		 simply declare it standalone the declare it anywhere in the program -->
+ 	<util:list list-class="java.util.LinkedList" id="myfriends">
+ 		<value>Abhishek</value>
+ 		<value>Ashish</value>
+ 		<value>Nitin</value>
+ 	</util:list>
+ 	
+ 	<!-- Standalone Map -->
+ 	<!-- HashMap does not maintain a insertion order -->
+ 	<util:map map-class="java.util.HashMap" id="fees">
+ 		<entry key="MCA" value="50000"/>
+ 		<entry key="BBA" value="55000"/>
+ 		<entry key="BTech" value="90000"/>
+ 	</util:map>
+ 	
+ 	<!-- TreeMap maitain a sorted order not a Insertion order -->
+ 	<util:map map-class="java.util.TreeMap" id="fees1">
+ 		<entry key="MCA" value="150000"/>
+ 		<entry key="BBA" value="55000"/>
+ 		<entry key="MTech" value="90000"/>
+ 	</util:map>
+ 	
+ 	<!-- Standalone Properties -->
+ 	<util:properties id="dbconfig">
+ 		<prop key="driver"> com.mysql.jdbc.Driver </prop>
+ 		<prop key="usesrname"> Priyanshu Baral </prop>
+ 		<prop key="password"> pbaral27 </prop>
+ 	</util:properties>
+ 	
+ 	<bean class="com.springcore.standalone.collections.Person" name="person1">
+ 	
+ 		<!-- <property name="friends">
+ 			<ref bean="myfriends"/>
+ 		</property> -->
+ 		<property name="friends" ref="myfriends"/>
+ 		<property name="feestructure" ref="fees"/>
+ 		<property name="properties" ref="dbconfig"></property>
+ 	
+ 	</bean>
+ 	
+ 	<bean class="com.springcore.standalone.collections.Person" name="person2" p:friends-ref="myfriends" p:feestructure-ref="fees1" 
+ 			p:properties-ref="dbconfig"/>
+
+</beans>
