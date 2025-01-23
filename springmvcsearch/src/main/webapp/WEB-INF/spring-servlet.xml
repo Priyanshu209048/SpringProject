@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+ 		https://www.springframework.org/schema/beans/spring-beans.xsd
+ 		http://www.springframework.org/schema/context
+ 		https://www.springframework.org/schema/context/spring-context.xsd
+ 		http://www.springframework.org/schema/tx
+ 		https://www.springframework.org/schema/tx/spring-tx.xsd
+ 		http://www.springframework.org/schema/mvc
+ 		https://www.springframework.org/schema/mvc/spring-mvc.xsd">
+ 		
+	
+	<context:component-scan base-package="springmvcsearch"/>
+	
+	<mvc:annotation-driven/>	<!-- @EnableWebMvc it is used if we done this work in java file -->
+	<!-- This is the mapping/serving of static files like css, js and images -->
+	<mvc:resources location="/WEB-INF/resources/" mapping="/resources/**"/>
+ 		
+ 	<bean class="org.springframework.web.servlet.view.InternalResourceViewResolver" name="viewResolver">
+ 		
+ 		<property name="prefix" value="/WEB-INF/views/"/>
+ 		<property name="suffix" value=".jsp"></property>
+ 		
+ 	</bean>
+ 	
+ 	<!-- Configuring multipart resolver -->
+ 	<!-- This is used to basically accepts all type of file from view like images or file, etc, 
+ 	but viewresulver only accepts the text for which contains numbers, date and so on -->
+ 	<bean class="org.springframework.web.multipart.commons.CommonsMultipartResolver" name="multipartResolver">
+ 	
+ 		<!-- This line is used to give the max file uploaded size and the value could be in byte -->
+ 		<!-- <property name="maxUploadSize" value="1" /> -->
+ 	
+ 	</bean>
+
+
+</beans>
